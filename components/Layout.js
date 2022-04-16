@@ -108,6 +108,7 @@ export default function Layout({ title, description, children }) {
   const loginClickHandler = (e) => {
     setAnchorEl(e.currentTarget);
   };
+
   const loginMenuCloseHandler = (e, redirect) => {
     setAnchorEl(null);
     if (redirect) {
@@ -123,6 +124,11 @@ export default function Layout({ title, description, children }) {
     Cookies.remove("paymentMethod");
     router.push("/");
   };
+  // const handleClose = (event, reason) => {
+  //   if (reason && reason == "backdropClick") return;
+  //   myCloseModal();
+  // };
+  // <Menu onClose={handleClose} />;
   return (
     <div>
       <Head>
@@ -187,12 +193,7 @@ export default function Layout({ title, description, children }) {
                 ))}
               </List>
             </Drawer>
-
             <div>
-              {/* <Switch
-                checked={darkMode}
-                onChange={darkModeChangeHandler}
-              ></Switch> */}
               <NextLink href="/cart" passHref>
                 <Link>
                   <Typography component="span">
@@ -209,6 +210,7 @@ export default function Layout({ title, description, children }) {
                   </Typography>
                 </Link>
               </NextLink>
+
               {userInfo ? (
                 <>
                   <Button
@@ -238,17 +240,8 @@ export default function Layout({ title, description, children }) {
                     >
                       Order Hisotry
                     </MenuItem>
-                    {userInfo.isAdmin && (
-                      <MenuItem
-                        onClick={(e) =>
-                          loginMenuCloseHandler(e, "/admin/dashboard")
-                        }
-                      >
-                        Admin Dashboard
-                      </MenuItem>
-                    )}
-                    <MenuItem onClick={logoutClickHandler}>Logout</MenuItem>
-                  </Menu>
+                    <MenuItem onClick={logoutClickHandler}>Logout</MenuItem>{" "}
+                  </Menu>{" "}
                 </>
               ) : (
                 <NextLink href="/login" passHref>
@@ -257,6 +250,14 @@ export default function Layout({ title, description, children }) {
                   </Link>
                 </NextLink>
               )}
+
+              {userInfo?.isAdmin ? (
+                <NextLink href="/admin/dashboard" passHref>
+                  <Link>
+                    <Typography component="span">Admin</Typography>
+                  </Link>
+                </NextLink>
+              ) : null}
             </div>
             <div className={classes.searchSection}>
               <form onSubmit={submitHandler} className={classes.searchForm}>
@@ -278,8 +279,15 @@ export default function Layout({ title, description, children }) {
           </Toolbar>
         </AppBar>
         <Container className={classes.main}>{children}</Container>
-        <footer className={classes.footer}>
-          <Typography>All rights reserved. Next Amazona.</Typography>
+        <footer className="footer">
+          <div className="bottom-footer">
+            <div className="copyright">
+              <p className="text">
+                Copyright&copy; 2022 All rights reserved | Made by
+                <span> Faisal Hossain </span>
+              </p>
+            </div>
+          </div>
         </footer>
       </ThemeProvider>
     </div>

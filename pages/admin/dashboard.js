@@ -1,8 +1,8 @@
-import axios from 'axios';
-import dynamic from 'next/dynamic';
-import { useRouter } from 'next/router';
-import NextLink from 'next/link';
-import React, { useEffect, useContext, useReducer } from 'react';
+import axios from "axios";
+import dynamic from "next/dynamic";
+import { useRouter } from "next/router";
+import NextLink from "next/link";
+import React, { useEffect, useContext, useReducer } from "react";
 import {
   CircularProgress,
   Grid,
@@ -14,20 +14,20 @@ import {
   ListItemText,
   CardContent,
   CardActions,
-} from '@material-ui/core';
-import { Bar } from 'react-chartjs-2';
-import { getError } from '../../utils/error';
-import { Store } from '../../utils/Store';
-import Layout from '../../components/Layout';
-import useStyles from '../../utils/styles';
+} from "@material-ui/core";
+// import { Bar } from 'react-chartjs-2';
+import { getError } from "../../utils/error";
+import { Store } from "../../utils/Store";
+import Layout from "../../components/Layout";
+import useStyles from "../../utils/styles";
 
 function reducer(state, action) {
   switch (action.type) {
-    case 'FETCH_REQUEST':
-      return { ...state, loading: true, error: '' };
-    case 'FETCH_SUCCESS':
-      return { ...state, loading: false, summary: action.payload, error: '' };
-    case 'FETCH_FAIL':
+    case "FETCH_REQUEST":
+      return { ...state, loading: true, error: "" };
+    case "FETCH_SUCCESS":
+      return { ...state, loading: false, summary: action.payload, error: "" };
+    case "FETCH_FAIL":
       return { ...state, loading: false, error: action.payload };
     default:
       state;
@@ -43,22 +43,22 @@ function AdminDashboard() {
   const [{ loading, error, summary }, dispatch] = useReducer(reducer, {
     loading: true,
     summary: { salesData: [] },
-    error: '',
+    error: "",
   });
 
   useEffect(() => {
     if (!userInfo) {
-      router.push('/login');
+      router.push("/login");
     }
     const fetchData = async () => {
       try {
-        dispatch({ type: 'FETCH_REQUEST' });
+        dispatch({ type: "FETCH_REQUEST" });
         const { data } = await axios.get(`/api/admin/summary`, {
           headers: { authorization: `Bearer ${userInfo.token}` },
         });
-        dispatch({ type: 'FETCH_SUCCESS', payload: data });
+        dispatch({ type: "FETCH_SUCCESS", payload: data });
       } catch (err) {
-        dispatch({ type: 'FETCH_FAIL', payload: getError(err) });
+        dispatch({ type: "FETCH_FAIL", payload: getError(err) });
       }
     };
     fetchData();
@@ -173,7 +173,7 @@ function AdminDashboard() {
                   </Grid>
                 )}
               </ListItem>
-              <ListItem>
+              {/* <ListItem>
                 <Typography component="h1" variant="h1">
                   Sales Chart
                 </Typography>
@@ -193,8 +193,8 @@ function AdminDashboard() {
                   options={{
                     legend: { display: true, position: 'right' },
                   }}
-                ></Bar>
-              </ListItem>
+                ></Bar> */}
+              {/* </ListItem> */}
             </List>
           </Card>
         </Grid>
