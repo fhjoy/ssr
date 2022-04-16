@@ -2,10 +2,11 @@ import { makeStyles } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
   navbar: {
-    backgroundColor: "#203040",
+    backgroundColor: "#e0e0e0",
     "& a": {
-      color: "#ffffff",
+      color: "#000",
       marginLeft: 10,
+      textDecoration: "none",
     },
   },
   brand: {
@@ -66,19 +67,19 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   searchForm: {
-    border: "1px solid #ffffff",
+    border: "1px solid #83c5be",
     backgroundColor: "#ffffff",
     borderRadius: 5,
   },
   searchInput: {
     paddingLeft: 5,
-    color: "#000000",
+    color: "#006d77",
     "& ::placeholder": {
       color: "#606060",
     },
   },
   iconButton: {
-    backgroundColor: "#f8c040",
+    backgroundColor: "#83c5be",
     padding: 5,
     borderRadius: "0 5px 5px 0",
     "& span": {
@@ -90,17 +91,17 @@ const useStyles = makeStyles((theme) => ({
   },
 
   fullContainer: { height: "100vh" },
-  mapInputBox: {
-    position: "absolute",
-    display: "flex",
-    left: 0,
-    right: 0,
-    margin: "10px auto",
-    width: 300,
-    height: 40,
-    "& input": {
-      width: 250,
-    },
-  },
+  // mapInputBox: {
+  //   position: "absolute",
+  //   display: "flex",
+  //   left: 0,
+  //   right: 0,
+  //   margin: "10px auto",
+  //   width: 300,
+  //   height: 40,
+  //   "& input": {
+  //     width: 250,
+  //   },
+  // },
 }));
 export default useStyles;

@@ -87,7 +87,7 @@ function ProductEdit({ params }) {
           setValue('slug', data.slug);
           setValue('price', data.price);
           setValue('image', data.image);
-          setValue('featuredImage', data.featuredImage);
+          // setValue('featuredImage', data.featuredImage);
           setIsFeatured(data.isFeatured);
           setValue('category', data.category);
           setValue('brand', data.brand);
@@ -127,7 +127,7 @@ function ProductEdit({ params }) {
     price,
     category,
     image,
-    featuredImage,
+    // featuredImage,
     brand,
     countInStock,
     description,
@@ -144,7 +144,7 @@ function ProductEdit({ params }) {
           category,
           image,
           isFeatured,
-          featuredImage,
+          // featuredImage,
           brand,
           countInStock,
           description,
@@ -314,7 +314,7 @@ function ProductEdit({ params }) {
                         }
                       ></FormControlLabel>
                     </ListItem>
-                    <ListItem>
+                    {/* <ListItem>
                       <Controller
                         name="featuredImage"
                         control={control}
@@ -336,8 +336,8 @@ function ProductEdit({ params }) {
                           ></TextField>
                         )}
                       ></Controller>
-                    </ListItem>
-                    <ListItem>
+                    </ListItem> */}
+                    {/* <ListItem>
                       <Button variant="contained" component="label">
                         Upload File
                         <input
@@ -347,7 +347,7 @@ function ProductEdit({ params }) {
                         />
                       </Button>
                       {loadingUpload && <CircularProgress />}
-                    </ListItem>
+                    </ListItem> */}
                     <ListItem>
                       <Controller
                         name="category"

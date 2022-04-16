@@ -20,7 +20,7 @@ import {
   Drawer,
   List,
   ListItem,
-  Divider,
+  // Divider,
   ListItemText,
   InputBase,
 } from "@material-ui/core";
@@ -97,7 +97,7 @@ export default function Layout({ title, description, children }) {
 
   useEffect(() => {
     fetchCategories();
-  });
+  }, []);
 
   // const darkModeChangeHandler = () => {
   //   dispatch({ type: darkMode ? "DARK_MODE_OFF" : "DARK_MODE_ON" });
@@ -160,7 +160,7 @@ export default function Layout({ title, description, children }) {
                     alignItems="center"
                     justifyContent="space-between"
                   >
-                    <Typography>Shopping by category</Typography>
+                    <Typography>List of categories</Typography>
                     <IconButton
                       aria-label="close"
                       onClick={sidebarCloseHandler}
@@ -169,7 +169,7 @@ export default function Layout({ title, description, children }) {
                     </IconButton>
                   </Box>
                 </ListItem>
-                <Divider light />
+                {/* <Divider light /> */}
                 {categories.map((category) => (
                   <NextLink
                     key={category}
