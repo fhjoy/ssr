@@ -193,7 +193,7 @@ export default function Layout({ title, description, children }) {
                 ))}
               </List>
             </Drawer>
-            <div>
+            <div className="classes.navCartAdimn">
               <NextLink href="/cart" passHref>
                 <Link>
                   <Typography component="span">

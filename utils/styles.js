@@ -3,6 +3,9 @@ import { makeStyles } from "@material-ui/core";
 const useStyles = makeStyles((theme) => ({
   navbar: {
     backgroundColor: "#e0e0e0",
+    maxWidth: "71% ",
+    margin: "0 auto",
+
     "& a": {
       color: "#000",
       marginLeft: 10,
@@ -13,9 +16,49 @@ const useStyles = makeStyles((theme) => ({
     fontWeight: "bold",
     fontSize: "1.5rem",
   },
-  grow: {
-    flexGrow: 1,
+  navbarButton: {
+    color: "#006d77",
+    textTransform: "none",
+
+    "&:hover": {
+      backgroundColor: "transparent",
+      color: "black",
+    },
+    "&:focus": {
+      backgroundColor: "transparent",
+      color: "black",
+    },
+    "&:active": {
+      backgroundColor: "transparent",
+      color: "black",
+    },
   },
+
+  // navbarSideIcon: {
+  //   backgroundColor: "#83c5be",
+  //   padding: "10px",
+  // },
+
+  navbarButtonIcon: {
+    color: "#000",
+    fontSize: "20px",
+    "&:hover": {
+      backgroundColor: "#006d77",
+    },
+    "&:focus": {
+      backgroundColor: "#006d77",
+    },
+    "&:active": {
+      backgroundColor: "#006d77",
+    },
+  },
+  navbarButtonText: {
+    color: "#006d77",
+    textTransform: "none",
+  },
+  // grow: {
+  //   flexGrow: 1,
+  // },
   main: {
     minHeight: "80vh",
   },
@@ -32,10 +75,7 @@ const useStyles = makeStyles((theme) => ({
     maxWidth: 800,
     margin: "0 auto",
   },
-  navbarButton: {
-    color: "#ffffff",
-    textTransform: "initial",
-  },
+
   transparentBackgroud: {
     backgroundColor: "transparent",
   },
@@ -56,6 +96,14 @@ const useStyles = makeStyles((theme) => ({
   },
   toolbar: {
     justifyContent: "space-between",
+    paddingLeft: "10px",
+    paddingRight: "0",
+  },
+
+  navCartAdimn: {
+    display: "flex",
+    justifyContent: "flex-end",
+    marginRight: "-100px",
   },
   menuButton: { padding: 0 },
   mt1: { marginTop: "1rem" },

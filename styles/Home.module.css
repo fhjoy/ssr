@@ -8,14 +8,39 @@
   height: 100vh;
 }
 
+/* .MuiToolbar-root
+  .MuiToolbar-regular
+  .makeStyles-toolbar-15
+  .MuiToolbar-gutters {
+  background-color: #fff;
+  box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2),
+    0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);
+  max-width: 70% !important;
+  padding: 0 3.2rem !important;
+  margin: 0 auto !important;
+} */
+
+/* #navbar-cart-username {
+  background-color: red;
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+  padding: 0.5rem 0;
+} */
+
 .main {
-  padding: 5rem 0;
-  flex: 1;
+  /* padding: 5rem 0; */
+  /* flex: 1; */
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
+
+/* .makeStyles-navbarButton-7:hover {
+  background-color: transparent !important;
+  color: #000 !important;
+} */
 
 .footer {
   padding: 2rem 0;
@@ -70,8 +95,8 @@
   border-radius: 5px;
   padding: 0.75rem;
   font-size: 1.1rem;
-  font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
-    Bitstream Vera Sans Mono, Courier New, monospace;
+  /* font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
+    Bitstream Vera Sans Mono, Courier New, monospace; */
 }
 
 .grid {
