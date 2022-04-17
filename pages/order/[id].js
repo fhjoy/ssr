@@ -212,7 +212,7 @@ function Order({ params }) {
                     Shipping Address
                   </Typography>
                 </ListItem>
-                <ListItem>
+                {/* <ListItem>
                   {shippingAddress.fullName}, {shippingAddress.address},{' '}
                   {shippingAddress.city}, {shippingAddress.postalCode},{' '}
                   {shippingAddress.country}
@@ -226,7 +226,7 @@ function Order({ params }) {
                       Show On Map
                     </Link>
                   )}
-                </ListItem>
+                </ListItem> */}
                 <ListItem>
                   Status:{' '}
                   {isDelivered

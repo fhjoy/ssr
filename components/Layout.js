@@ -146,7 +146,7 @@ export default function Layout({ title, description, children }) {
                 onClick={sidebarOpenHandler}
                 className={classes.menuButton}
               >
-                <MenuIcon className={classes.navbarButton} />
+                <MenuIcon className={classes.navbarSideIcon} />
               </IconButton>
               <NextLink href="/" passHref>
                 <Link>
@@ -193,7 +193,7 @@ export default function Layout({ title, description, children }) {
                 ))}
               </List>
             </Drawer>
-            <div className="classes.navCartAdimn">
+            <div className={classes.navCartAdmin}>
               <NextLink href="/cart" passHref>
                 <Link>
                   <Typography component="span">

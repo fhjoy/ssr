@@ -19,7 +19,9 @@ const useStyles = makeStyles((theme) => ({
   navbarButton: {
     color: "#006d77",
     textTransform: "none",
-
+    fontSize: "1rem",
+    fontWeight: "normal",
+    margin: "0 -.5rem 0 .2rem",
     "&:hover": {
       backgroundColor: "transparent",
       color: "black",
@@ -34,10 +36,29 @@ const useStyles = makeStyles((theme) => ({
     },
   },
 
-  // navbarSideIcon: {
-  //   backgroundColor: "#83c5be",
-  //   padding: "10px",
-  // },
+  navbarSideIcon: {
+    color: "#006d77",
+    backgroundColor: "#83c5be",
+    padding: "0.1rem",
+    borderRadius: "3px",
+    "&:hover": {
+      backgroundColor: "#006d77",
+      color: "white",
+    },
+  },
+
+  toolbar: {
+    justifyContent: "space-between",
+    paddingLeft: "10px",
+    paddingRight: "0",
+  },
+
+  navCartAdmin: {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "flex-end",
+    marginRight: "-40rem",
+  },
 
   navbarButtonIcon: {
     color: "#000",
@@ -52,10 +73,11 @@ const useStyles = makeStyles((theme) => ({
       backgroundColor: "#006d77",
     },
   },
-  navbarButtonText: {
-    color: "#006d77",
-    textTransform: "none",
-  },
+  menuButton: { padding: 0 },
+  // navbarButtonText: {
+  //   color: "#006d77",
+  //   textTransform: "none",
+  // },
   // grow: {
   //   flexGrow: 1,
   // },
@@ -94,19 +116,9 @@ const useStyles = makeStyles((theme) => ({
     borderRight: "1px #808080 solid",
     paddingRight: "1rem",
   },
-  toolbar: {
-    justifyContent: "space-between",
-    paddingLeft: "10px",
-    paddingRight: "0",
-  },
 
-  navCartAdimn: {
-    display: "flex",
-    justifyContent: "flex-end",
-    marginRight: "-100px",
-  },
-  menuButton: { padding: 0 },
   mt1: { marginTop: "1rem" },
+
   // search
   searchSection: {
     display: "none",
@@ -115,7 +127,7 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   searchForm: {
-    border: "1px solid #83c5be",
+    // border: "1px solid #83c5be",
     backgroundColor: "#ffffff",
     borderRadius: 5,
   },
@@ -128,11 +140,18 @@ const useStyles = makeStyles((theme) => ({
   },
   iconButton: {
     backgroundColor: "#83c5be",
-    padding: 5,
+    // padding: "5px",
+    paddingTop: "6px",
+    paddingBottom: "5px",
     borderRadius: "0 5px 5px 0",
-    "& span": {
-      color: "#000000",
+
+    "&:hover": {
+      backgroundColor: "#006d77",
+      color: "white",
     },
+    // "& span": {
+    //   color: "#000000",
+    // },
   },
   sort: {
     marginRight: 5,
