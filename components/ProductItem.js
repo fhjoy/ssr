@@ -5,13 +5,17 @@ import {
   CardActions,
   CardContent,
   CardMedia,
+  Link,
+  ListItem,
   Typography,
-} from '@material-ui/core';
-import React from 'react';
-import NextLink from 'next/link';
-import Rating from '@material-ui/lab/Rating';
+} from "@material-ui/core";
+import React from "react";
+import NextLink from "next/link";
+import Rating from "@material-ui/lab/Rating";
+import useStyles from "../utils/styles";
 
 export default function ProductItem({ product, addToCartHandler }) {
+  const classes = useStyles();
   return (
     <Card>
       <NextLink href={`/product/${product.slug}`} passHref>
@@ -23,19 +27,42 @@ export default function ProductItem({ product, addToCartHandler }) {
           ></CardMedia>
           <CardContent>
             <Typography>{product.name}</Typography>
-            <Rating value={product.rating} readOnly></Rating>
+            <ListItem className={classes.rating}>
+              <Rating
+                className={classes.ratingIcon}
+                value={product.rating}
+                readOnly
+              ></Rating>
+              <Link href="#reviews">
+                <Typography>({product.numReviews} reviews)</Typography>
+              </Link>
+            </ListItem>
+            <Typography>€{product.price}</Typography>
           </CardContent>
         </CardActionArea>
       </NextLink>
       <CardActions>
-        <Typography>${product.price}</Typography>
-        <Button
+        {product.countInStock === 0 ? (
+          <Button disabled>Out of stock</Button>
+        ) : (
+          <Button
+            className={classes.addToCardButton}
+            variant="contained"
+            size="small"
+            color="primary"
+            onClick={() => addToCartHandler(product)}
+          >
+            Add to cart
+          </Button>
+        )}
+        {/* <Button
+          variant="contained"
           size="small"
           color="primary"
           onClick={() => addToCartHandler(product)}
         >
           Add to cart
-        </Button>
+        </Button> */}
       </CardActions>
     </Card>
   );

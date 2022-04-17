@@ -22,6 +22,7 @@ const useStyles = makeStyles((theme) => ({
     fontSize: "1rem",
     fontWeight: "normal",
     margin: "0 -.5rem 0 .2rem",
+    transition: "all 0.3s ease-in-out",
     "&:hover": {
       backgroundColor: "transparent",
       color: "black",
@@ -44,6 +45,7 @@ const useStyles = makeStyles((theme) => ({
     "&:hover": {
       backgroundColor: "#006d77",
       color: "white",
+      transition: "all 0.3s ease-in-out",
     },
   },
 
@@ -65,6 +67,7 @@ const useStyles = makeStyles((theme) => ({
     fontSize: "20px",
     "&:hover": {
       backgroundColor: "#006d77",
+      transition: "all 0.3s ease-in-out",
     },
     "&:focus": {
       backgroundColor: "#006d77",
@@ -73,7 +76,12 @@ const useStyles = makeStyles((theme) => ({
       backgroundColor: "#006d77",
     },
   },
-  menuButton: { padding: 0 },
+  menuButton: {
+    paddingTop: "1rem",
+    paddingBottom: "1rem",
+    paddingLeft: 0,
+    paddingRight: 0,
+  },
   // navbarButtonText: {
   //   color: "#006d77",
   //   textTransform: "none",
@@ -148,6 +156,7 @@ const useStyles = makeStyles((theme) => ({
     "&:hover": {
       backgroundColor: "#006d77",
       color: "white",
+      transition: "all 0.3s ease-in-out",
     },
     // "& span": {
     //   color: "#000000",
@@ -156,7 +165,28 @@ const useStyles = makeStyles((theme) => ({
   sort: {
     marginRight: 5,
   },
+  rating: {
+    paddingLeft: "0",
+  },
+  ratingIcon: {
+    color: "#006d77",
+    "&:hover": {
+      backgroundColor: "black",
+      transition: "all 0.3s ease-in-out",
+    },
+  },
+  addToCardButton: {
+    backgroundColor: "#83c5be",
+    paddingTop: "6px",
+    paddingBottom: "5px",
+    borderRadius: 3,
 
+    "&:hover": {
+      backgroundColor: "#006d77",
+      color: "white",
+      transition: "all 0.3s ease-in-out",
+    },
+  },
   fullContainer: { height: "100vh" },
   // mapInputBox: {
   //   position: "absolute",

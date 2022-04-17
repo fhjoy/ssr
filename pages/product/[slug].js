@@ -1,6 +1,6 @@
-import React, { useContext, useEffect, useState } from 'react';
-import NextLink from 'next/link';
-import Image from 'next/image';
+import React, { useContext, useEffect, useState } from "react";
+import NextLink from "next/link";
+import Image from "next/image";
 import {
   Grid,
   Link,
@@ -11,17 +11,17 @@ import {
   Button,
   TextField,
   CircularProgress,
-} from '@material-ui/core';
-import Rating from '@material-ui/lab/Rating';
-import Layout from '../../components/Layout';
-import useStyles from '../../utils/styles';
-import Product from '../../models/Product';
-import db from '../../utils/db';
-import axios from 'axios';
-import { Store } from '../../utils/Store';
-import { getError } from '../../utils/error';
-import { useRouter } from 'next/router';
-import { useSnackbar } from 'notistack';
+} from "@material-ui/core";
+import Rating from "@material-ui/lab/Rating";
+import Layout from "../../components/Layout";
+import useStyles from "../../utils/styles";
+import Product from "../../models/Product";
+import db from "../../utils/db";
+import axios from "axios";
+import { Store } from "../../utils/Store";
+import { getError } from "../../utils/error";
+import { useRouter } from "next/router";
+import { useSnackbar } from "notistack";
 
 export default function ProductScreen(props) {
   const router = useRouter();
@@ -33,7 +33,7 @@ export default function ProductScreen(props) {
 
   const [reviews, setReviews] = useState([]);
   const [rating, setRating] = useState(0);
-  const [comment, setComment] = useState('');
+  const [comment, setComment] = useState("");
   const [loading, setLoading] = useState(false);
 
   const submitHandler = async (e) => {
@@ -51,11 +51,11 @@ export default function ProductScreen(props) {
         }
       );
       setLoading(false);
-      enqueueSnackbar('Review submitted successfully', { variant: 'success' });
+      enqueueSnackbar("Review submitted successfully", { variant: "success" });
       fetchReviews();
     } catch (err) {
       setLoading(false);
-      enqueueSnackbar(getError(err), { variant: 'error' });
+      enqueueSnackbar(getError(err), { variant: "error" });
     }
   };
 
@@ -64,7 +64,7 @@ export default function ProductScreen(props) {
       const { data } = await axios.get(`/api/products/${product._id}/reviews`);
       setReviews(data);
     } catch (err) {
-      enqueueSnackbar(getError(err), { variant: 'error' });
+      enqueueSnackbar(getError(err), { variant: "error" });
     }
   };
   useEffect(() => {
@@ -79,11 +79,11 @@ export default function ProductScreen(props) {
     const quantity = existItem ? existItem.quantity + 1 : 1;
     const { data } = await axios.get(`/api/products/${product._id}`);
     if (data.countInStock < quantity) {
-      window.alert('Sorry. Product is out of stock');
+      window.alert("Sorry. Product is out of stock");
       return;
     }
-    dispatch({ type: 'CART_ADD_ITEM', payload: { ...product, quantity } });
-    router.push('/cart');
+    dispatch({ type: "CART_ADD_ITEM", payload: { ...product, quantity } });
+    router.push("/cart");
   };
 
   return (
@@ -119,9 +119,13 @@ export default function ProductScreen(props) {
               <Typography>Brand: {product.brand}</Typography>
             </ListItem>
             <ListItem>
-              <Rating value={product.rating} readOnly></Rating>
+              <Rating
+                className={classes.ratingIcon}
+                value={product.rating}
+                readOnly
+              ></Rating>
               <Link href="#reviews">
-                <Typography>({product.numReviews} reviews)</Typography>
+                <Typography>({product.numReviews} Reviews)</Typography>
               </Link>
             </ListItem>
             <ListItem>
@@ -138,7 +142,7 @@ export default function ProductScreen(props) {
                     <Typography>Price</Typography>
                   </Grid>
                   <Grid item xs={6}>
-                    <Typography>${product.price}</Typography>
+                    <Typography>€{product.price}</Typography>
                   </Grid>
                 </Grid>
               </ListItem>
@@ -149,13 +153,14 @@ export default function ProductScreen(props) {
                   </Grid>
                   <Grid item xs={6}>
                     <Typography>
-                      {product.countInStock > 0 ? 'In stock' : 'Unavailable'}
+                      {product.countInStock > 0 ? "In stock" : "Unavailable"}
                     </Typography>
                   </Grid>
                 </Grid>
               </ListItem>
               <ListItem>
                 <Button
+                  className={classes.addToCardButton}
                   fullWidth
                   variant="contained"
                   color="primary"
@@ -232,10 +237,10 @@ export default function ProductScreen(props) {
             </form>
           ) : (
             <Typography variant="h2">
-              Please{' '}
+              Please{" "}
               <Link href={`/login?redirect=/product/${product.slug}`}>
                 login
-              </Link>{' '}
+              </Link>{" "}
               to write a review
             </Typography>
           )}
@@ -250,7 +255,7 @@ export async function getServerSideProps(context) {
   const { slug } = params;
 
   await db.connect();
-  const product = await Product.findOne({ slug }, '-reviews').lean();
+  const product = await Product.findOne({ slug }, "-reviews").lean();
   await db.disconnect();
   return {
     props: {
