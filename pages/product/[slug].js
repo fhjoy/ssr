@@ -223,6 +223,7 @@ export default function ProductScreen(props) {
                 </ListItem>
                 <ListItem>
                   <Button
+                    className={classes.addToCardButton}
                     type="submit"
                     fullWidth
                     variant="contained"

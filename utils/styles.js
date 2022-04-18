@@ -82,6 +82,45 @@ const useStyles = makeStyles((theme) => ({
     paddingLeft: 0,
     paddingRight: 0,
   },
+
+  editProductButton: {
+    color: "#006d77",
+    backgroundColor: "#83c5be",
+    paddingLeft: "1.1rem",
+    paddingTop: ".4rem",
+    paddingBottom: ".5rem",
+
+    "&:hover": {
+      backgroundColor: "#006d77",
+      color: "white !important",
+      transition: "all 0.3s ease-in-out",
+    },
+    "&:focus": {
+      backgroundColor: "#006d77",
+    },
+    "&:active": {
+      backgroundColor: "#006d77",
+    },
+  },
+  deleteProductButton: {
+    color: "#83c5be",
+    backgroundColor: "Red",
+    paddingLeft: "1rem",
+    paddingTop: ".35rem",
+    paddingBottom: ".35rem",
+
+    "&:hover": {
+      backgroundColor: "#006d77",
+      color: "white !important",
+      transition: "all 0.3s ease-in-out",
+    },
+    "&:focus": {
+      backgroundColor: "#006d77",
+    },
+    "&:active": {
+      backgroundColor: "#006d77",
+    },
+  },
   // navbarButtonText: {
   //   color: "#006d77",
   //   textTransform: "none",
@@ -177,13 +216,14 @@ const useStyles = makeStyles((theme) => ({
   },
   addToCardButton: {
     backgroundColor: "#83c5be",
+    color: "#006d77",
     paddingTop: "6px",
     paddingBottom: "5px",
     borderRadius: 3,
 
     "&:hover": {
       backgroundColor: "#006d77",
-      color: "white",
+      color: "white !important",
       transition: "all 0.3s ease-in-out",
     },
   },
