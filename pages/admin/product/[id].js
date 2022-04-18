@@ -1,8 +1,8 @@
-import axios from 'axios';
-import dynamic from 'next/dynamic';
-import { useRouter } from 'next/router';
-import NextLink from 'next/link';
-import React, { useEffect, useContext, useReducer, useState } from 'react';
+import axios from "axios";
+import dynamic from "next/dynamic";
+import { useRouter } from "next/router";
+import NextLink from "next/link";
+import React, { useEffect, useContext, useReducer, useState } from "react";
 import {
   Grid,
   List,
@@ -15,37 +15,37 @@ import {
   CircularProgress,
   FormControlLabel,
   Checkbox,
-} from '@material-ui/core';
-import { getError } from '../../../utils/error';
-import { Store } from '../../../utils/Store';
-import Layout from '../../../components/Layout';
-import useStyles from '../../../utils/styles';
-import { Controller, useForm } from 'react-hook-form';
-import { useSnackbar } from 'notistack';
+} from "@material-ui/core";
+import { getError } from "../../../utils/error";
+import { Store } from "../../../utils/Store";
+import Layout from "../../../components/Layout";
+import useStyles from "../../../utils/styles";
+import { Controller, useForm } from "react-hook-form";
+import { useSnackbar } from "notistack";
 
 function reducer(state, action) {
   switch (action.type) {
-    case 'FETCH_REQUEST':
-      return { ...state, loading: true, error: '' };
-    case 'FETCH_SUCCESS':
-      return { ...state, loading: false, error: '' };
-    case 'FETCH_FAIL':
+    case "FETCH_REQUEST":
+      return { ...state, loading: true, error: "" };
+    case "FETCH_SUCCESS":
+      return { ...state, loading: false, error: "" };
+    case "FETCH_FAIL":
       return { ...state, loading: false, error: action.payload };
-    case 'UPDATE_REQUEST':
-      return { ...state, loadingUpdate: true, errorUpdate: '' };
-    case 'UPDATE_SUCCESS':
-      return { ...state, loadingUpdate: false, errorUpdate: '' };
-    case 'UPDATE_FAIL':
+    case "UPDATE_REQUEST":
+      return { ...state, loadingUpdate: true, errorUpdate: "" };
+    case "UPDATE_SUCCESS":
+      return { ...state, loadingUpdate: false, errorUpdate: "" };
+    case "UPDATE_FAIL":
       return { ...state, loadingUpdate: false, errorUpdate: action.payload };
-    case 'UPLOAD_REQUEST':
-      return { ...state, loadingUpload: true, errorUpload: '' };
-    case 'UPLOAD_SUCCESS':
+    case "UPLOAD_REQUEST":
+      return { ...state, loadingUpload: true, errorUpload: "" };
+    case "UPLOAD_SUCCESS":
       return {
         ...state,
         loadingUpload: false,
-        errorUpload: '',
+        errorUpload: "",
       };
-    case 'UPLOAD_FAIL':
+    case "UPLOAD_FAIL":
       return { ...state, loadingUpload: false, errorUpload: action.payload };
 
     default:
@@ -59,7 +59,7 @@ function ProductEdit({ params }) {
   const [{ loading, error, loadingUpdate, loadingUpload }, dispatch] =
     useReducer(reducer, {
       loading: true,
-      error: '',
+      error: "",
     });
   const {
     handleSubmit,
@@ -74,50 +74,49 @@ function ProductEdit({ params }) {
 
   useEffect(() => {
     if (!userInfo) {
-      return router.push('/login');
+      return router.push("/login");
     } else {
       const fetchData = async () => {
         try {
-          dispatch({ type: 'FETCH_REQUEST' });
+          dispatch({ type: "FETCH_REQUEST" });
           const { data } = await axios.get(`/api/admin/products/${productId}`, {
             headers: { authorization: `Bearer ${userInfo.token}` },
           });
-          dispatch({ type: 'FETCH_SUCCESS' });
-          setValue('name', data.name);
-          setValue('slug', data.slug);
-          setValue('price', data.price);
-          setValue('image', data.image);
-          // setValue('featuredImage', data.featuredImage);
+          dispatch({ type: "FETCH_SUCCESS" });
+          setValue("name", data.name);
+          setValue("slug", data.slug);
+          setValue("price", data.price);
+          setValue("image", data.image);
           setIsFeatured(data.isFeatured);
-          setValue('category', data.category);
-          setValue('brand', data.brand);
-          setValue('countInStock', data.countInStock);
-          setValue('description', data.description);
+          setValue("category", data.category);
+          setValue("brand", data.brand);
+          setValue("countInStock", data.countInStock);
+          setValue("description", data.description);
         } catch (err) {
-          dispatch({ type: 'FETCH_FAIL', payload: getError(err) });
+          dispatch({ type: "FETCH_FAIL", payload: getError(err) });
         }
       };
       fetchData();
     }
   }, []);
-  const uploadHandler = async (e, imageField = 'image') => {
+  const uploadHandler = async (e, imageField = "image") => {
     const file = e.target.files[0];
     const bodyFormData = new FormData();
-    bodyFormData.append('file', file);
+    bodyFormData.append("file", file);
     try {
-      dispatch({ type: 'UPLOAD_REQUEST' });
-      const { data } = await axios.post('/api/admin/upload', bodyFormData, {
+      dispatch({ type: "UPLOAD_REQUEST" });
+      const { data } = await axios.post("/api/admin/upload", bodyFormData, {
         headers: {
-          'Content-Type': 'multipart/form-data',
+          "Content-Type": "multipart/form-data",
           authorization: `Bearer ${userInfo.token}`,
         },
       });
-      dispatch({ type: 'UPLOAD_SUCCESS' });
+      dispatch({ type: "UPLOAD_SUCCESS" });
       setValue(imageField, data.secure_url);
-      enqueueSnackbar('File uploaded successfully', { variant: 'success' });
+      enqueueSnackbar("File uploaded successfully", { variant: "success" });
     } catch (err) {
-      dispatch({ type: 'UPLOAD_FAIL', payload: getError(err) });
-      enqueueSnackbar(getError(err), { variant: 'error' });
+      dispatch({ type: "UPLOAD_FAIL", payload: getError(err) });
+      enqueueSnackbar(getError(err), { variant: "error" });
     }
   };
 
@@ -127,14 +126,13 @@ function ProductEdit({ params }) {
     price,
     category,
     image,
-    // featuredImage,
     brand,
     countInStock,
     description,
   }) => {
     closeSnackbar();
     try {
-      dispatch({ type: 'UPDATE_REQUEST' });
+      dispatch({ type: "UPDATE_REQUEST" });
       await axios.put(
         `/api/admin/products/${productId}`,
         {
@@ -144,19 +142,18 @@ function ProductEdit({ params }) {
           category,
           image,
           isFeatured,
-          // featuredImage,
           brand,
           countInStock,
           description,
         },
         { headers: { authorization: `Bearer ${userInfo.token}` } }
       );
-      dispatch({ type: 'UPDATE_SUCCESS' });
-      enqueueSnackbar('Product updated successfully', { variant: 'success' });
-      router.push('/admin/products');
+      dispatch({ type: "UPDATE_SUCCESS" });
+      enqueueSnackbar("Product updated successfully", { variant: "success" });
+      router.push("/admin/products");
     } catch (err) {
-      dispatch({ type: 'UPDATE_FAIL', payload: getError(err) });
-      enqueueSnackbar(getError(err), { variant: 'error' });
+      dispatch({ type: "UPDATE_FAIL", payload: getError(err) });
+      enqueueSnackbar(getError(err), { variant: "error" });
     }
   };
 
@@ -226,7 +223,7 @@ function ProductEdit({ params }) {
                             id="name"
                             label="Name"
                             error={Boolean(errors.name)}
-                            helperText={errors.name ? 'Name is required' : ''}
+                            helperText={errors.name ? "Name is required" : ""}
                             {...field}
                           ></TextField>
                         )}
@@ -247,7 +244,7 @@ function ProductEdit({ params }) {
                             id="slug"
                             label="Slug"
                             error={Boolean(errors.slug)}
-                            helperText={errors.slug ? 'Slug is required' : ''}
+                            helperText={errors.slug ? "Slug is required" : ""}
                             {...field}
                           ></TextField>
                         )}
@@ -268,7 +265,7 @@ function ProductEdit({ params }) {
                             id="price"
                             label="Price"
                             error={Boolean(errors.price)}
-                            helperText={errors.price ? 'Price is required' : ''}
+                            helperText={errors.price ? "Price is required" : ""}
                             {...field}
                           ></TextField>
                         )}
@@ -289,7 +286,7 @@ function ProductEdit({ params }) {
                             id="image"
                             label="Image"
                             error={Boolean(errors.image)}
-                            helperText={errors.image ? 'Image is required' : ''}
+                            helperText={errors.image ? "Image is required" : ""}
                             {...field}
                           ></TextField>
                         )}
@@ -314,40 +311,6 @@ function ProductEdit({ params }) {
                         }
                       ></FormControlLabel>
                     </ListItem>
-                    {/* <ListItem>
-                      <Controller
-                        name="featuredImage"
-                        control={control}
-                        defaultValue=""
-                        rules={{
-                          required: true,
-                        }}
-                        render={({ field }) => (
-                          <TextField
-                            variant="outlined"
-                            fullWidth
-                            id="featuredImage"
-                            label="Featured Image"
-                            error={Boolean(errors.image)}
-                            helperText={
-                              errors.image ? 'Featured Image is required' : ''
-                            }
-                            {...field}
-                          ></TextField>
-                        )}
-                      ></Controller>
-                    </ListItem> */}
-                    {/* <ListItem>
-                      <Button variant="contained" component="label">
-                        Upload File
-                        <input
-                          type="file"
-                          onChange={(e) => uploadHandler(e, 'featuredImage')}
-                          hidden
-                        />
-                      </Button>
-                      {loadingUpload && <CircularProgress />}
-                    </ListItem> */}
                     <ListItem>
                       <Controller
                         name="category"
@@ -364,7 +327,7 @@ function ProductEdit({ params }) {
                             label="Category"
                             error={Boolean(errors.category)}
                             helperText={
-                              errors.category ? 'Category is required' : ''
+                              errors.category ? "Category is required" : ""
                             }
                             {...field}
                           ></TextField>
@@ -386,7 +349,7 @@ function ProductEdit({ params }) {
                             id="brand"
                             label="Brand"
                             error={Boolean(errors.brand)}
-                            helperText={errors.brand ? 'Brand is required' : ''}
+                            helperText={errors.brand ? "Brand is required" : ""}
                             {...field}
                           ></TextField>
                         )}
@@ -409,8 +372,8 @@ function ProductEdit({ params }) {
                             error={Boolean(errors.countInStock)}
                             helperText={
                               errors.countInStock
-                                ? 'Count in stock is required'
-                                : ''
+                                ? "Count in stock is required"
+                                : ""
                             }
                             {...field}
                           ></TextField>
@@ -435,8 +398,8 @@ function ProductEdit({ params }) {
                             error={Boolean(errors.description)}
                             helperText={
                               errors.description
-                                ? 'Description is required'
-                                : ''
+                                ? "Description is required"
+                                : ""
                             }
                             {...field}
                           ></TextField>

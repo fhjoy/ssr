@@ -121,20 +121,9 @@ const useStyles = makeStyles((theme) => ({
       backgroundColor: "#006d77",
     },
   },
-  // navbarButtonText: {
-  //   color: "#006d77",
-  //   textTransform: "none",
-  // },
-  // grow: {
-  //   flexGrow: 1,
-  // },
   main: {
     minHeight: "80vh",
   },
-  // footer: {
-  //   marginTop: 10,
-  //   textAlign: "center",
-  // },
   section: {
     marginTop: 10,
     marginBottom: 10,
@@ -174,7 +163,6 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   searchForm: {
-    // border: "1px solid #83c5be",
     backgroundColor: "#ffffff",
     borderRadius: 5,
   },
@@ -187,7 +175,6 @@ const useStyles = makeStyles((theme) => ({
   },
   iconButton: {
     backgroundColor: "#83c5be",
-    // padding: "5px",
     paddingTop: "6px",
     paddingBottom: "5px",
     borderRadius: "0 5px 5px 0",
@@ -197,9 +184,6 @@ const useStyles = makeStyles((theme) => ({
       color: "white",
       transition: "all 0.3s ease-in-out",
     },
-    // "& span": {
-    //   color: "#000000",
-    // },
   },
   sort: {
     marginRight: 5,
@@ -231,7 +215,6 @@ const useStyles = makeStyles((theme) => ({
     padding: "2rem 0",
     backgroundColor: "#111",
     textAlign: "center",
-    // maxWidth: "71% ",
     margin: "0 auto",
   },
   footerText: {
@@ -244,17 +227,5 @@ const useStyles = makeStyles((theme) => ({
   },
 
   fullContainer: { height: "100vh" },
-  // mapInputBox: {
-  //   position: "absolute",
-  //   display: "flex",
-  //   left: 0,
-  //   right: 0,
-  //   margin: "10px auto",
-  //   width: 300,
-  //   height: 40,
-  //   "& input": {
-  //     width: 250,
-  //   },
-  // },
 }));
 export default useStyles;

@@ -55,14 +55,6 @@ export default function ProductItem({ product, addToCartHandler }) {
             Add to cart
           </Button>
         )}
-        {/* <Button
-          variant="contained"
-          size="small"
-          color="primary"
-          onClick={() => addToCartHandler(product)}
-        >
-          Add to cart
-        </Button> */}
       </CardActions>
     </Card>
   );

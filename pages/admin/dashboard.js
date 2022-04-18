@@ -15,7 +15,6 @@ import {
   CardContent,
   CardActions,
 } from "@material-ui/core";
-// import { Bar } from 'react-chartjs-2';
 import { getError } from "../../utils/error";
 import { Store } from "../../utils/Store";
 import Layout from "../../components/Layout";
@@ -173,28 +172,6 @@ function AdminDashboard() {
                   </Grid>
                 )}
               </ListItem>
-              {/* <ListItem>
-                <Typography component="h1" variant="h1">
-                  Sales Chart
-                </Typography>
-              </ListItem>
-              <ListItem>
-                <Bar
-                  data={{
-                    labels: summary.salesData.map((x) => x._id),
-                    datasets: [
-                      {
-                        label: 'Sales',
-                        backgroundColor: 'rgba(162, 222, 208, 1)',
-                        data: summary.salesData.map((x) => x.totalSales),
-                      },
-                    ],
-                  }}
-                  options={{
-                    legend: { display: true, position: 'right' },
-                  }}
-                ></Bar> */}
-              {/* </ListItem> */}
             </List>
           </Card>
         </Grid>

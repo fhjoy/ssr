@@ -20,7 +20,6 @@ import {
   Drawer,
   List,
   ListItem,
-  // Divider,
   ListItemText,
   InputBase,
 } from "@material-ui/core";
@@ -55,7 +54,6 @@ export default function Layout({ title, description, children }) {
       },
     },
     palette: {
-      // type: darkMode ? "dark" : "light",
       primary: {
         main: "#c1e2df",
       },
@@ -99,11 +97,6 @@ export default function Layout({ title, description, children }) {
     fetchCategories();
   }, []);
 
-  // const darkModeChangeHandler = () => {
-  //   dispatch({ type: darkMode ? "DARK_MODE_OFF" : "DARK_MODE_ON" });
-  //   const newDarkMode = !darkMode;
-  //   Cookies.set("darkMode", newDarkMode ? "ON" : "OFF");
-  // };
   const [anchorEl, setAnchorEl] = useState(null);
   const loginClickHandler = (e) => {
     setAnchorEl(e.currentTarget);
@@ -124,11 +117,7 @@ export default function Layout({ title, description, children }) {
     Cookies.remove("paymentMethod");
     router.push("/");
   };
-  // const handleClose = (event, reason) => {
-  //   if (reason && reason == "backdropClick") return;
-  //   myCloseModal();
-  // };
-  // <Menu onClose={handleClose} />;
+
   return (
     <div>
       <Head>
@@ -175,7 +164,7 @@ export default function Layout({ title, description, children }) {
                     </IconButton>
                   </Box>
                 </ListItem>
-                {/* <Divider light /> */}
+
                 {categories.map((category) => (
                   <NextLink
                     key={category}

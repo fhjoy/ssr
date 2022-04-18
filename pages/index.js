@@ -1,5 +1,4 @@
 /* eslint-disable @next/next/no-img-element */
-// import NextLink from "next/link";
 import { Grid, Typography } from "@material-ui/core";
 import Layout from "../components/Layout";
 import db from "../utils/db";
@@ -9,11 +8,9 @@ import { useRouter } from "next/router";
 import { useContext } from "react";
 import { Store } from "../utils/Store";
 import ProductItem from "../components/ProductItem";
-// import Carousel from "react-material-ui-carousel";
-// import useStyles from "../utils/styles";
+
 
 export default function Home(props) {
-  // const classes = useStyles();
   const router = useRouter();
   const { state, dispatch } = useContext(Store);
   const { topRatedProducts } = props;
@@ -30,23 +27,6 @@ export default function Home(props) {
   };
   return (
     <Layout>
-      {/* <Carousel className={classes.mt1} animation="slide">
-        {featuredProducts.map((product) => (
-          <NextLink
-            key={product._id}
-            href={`/product/${product.slug}`}
-            passHref
-          >
-            <Link>
-              <img
-                src={product.featuredImage}
-                alt={product.name}
-                className={classes.featuredImage}
-              ></img>
-            </Link>
-          </NextLink>
-        ))}
-      </Carousel> */}
       <Typography variant="h2" align="center">
         Currently Trending
       </Typography>

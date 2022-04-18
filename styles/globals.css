@@ -6,10 +6,6 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* a {
-  color: #006d77 !important;
-  text-decoration: none !important;
-} */
 a:link,
 a:visited {
   display: inline-block;
