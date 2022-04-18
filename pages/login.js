@@ -5,18 +5,19 @@ import {
   TextField,
   Button,
   Link,
-} from '@material-ui/core';
-import axios from 'axios';
-import { useRouter } from 'next/router';
-import NextLink from 'next/link';
-import React, { useContext, useEffect } from 'react';
-import Layout from '../components/Layout';
-import { Store } from '../utils/Store';
-import useStyles from '../utils/styles';
-import Cookies from 'js-cookie';
-import { Controller, useForm } from 'react-hook-form';
-import { useSnackbar } from 'notistack';
-import { getError } from '../utils/error';
+  createGenerateClassName,
+} from "@material-ui/core";
+import axios from "axios";
+import { useRouter } from "next/router";
+import NextLink from "next/link";
+import React, { useContext, useEffect } from "react";
+import Layout from "../components/Layout";
+import { Store } from "../utils/Store";
+import useStyles from "../utils/styles";
+import Cookies from "js-cookie";
+import { Controller, useForm } from "react-hook-form";
+import { useSnackbar } from "notistack";
+import { getError } from "../utils/error";
 
 export default function Login() {
   const {
@@ -31,7 +32,7 @@ export default function Login() {
   const { userInfo } = state;
   useEffect(() => {
     if (userInfo) {
-      router.push('/');
+      router.push("/");
     }
   }, []);
 
@@ -39,15 +40,15 @@ export default function Login() {
   const submitHandler = async ({ email, password }) => {
     closeSnackbar();
     try {
-      const { data } = await axios.post('/api/users/login', {
+      const { data } = await axios.post("/api/users/login", {
         email,
         password,
       });
-      dispatch({ type: 'USER_LOGIN', payload: data });
-      Cookies.set('userInfo', data);
-      router.push(redirect || '/');
+      dispatch({ type: "USER_LOGIN", payload: data });
+      Cookies.set("userInfo", data);
+      router.push(redirect || "/");
     } catch (err) {
-      enqueueSnackbar(getError(err), { variant: 'error' });
+      enqueueSnackbar(getError(err), { variant: "error" });
     }
   };
   return (
@@ -72,14 +73,14 @@ export default function Login() {
                   fullWidth
                   id="email"
                   label="Email"
-                  inputProps={{ type: 'email' }}
+                  inputProps={{ type: "email" }}
                   error={Boolean(errors.email)}
                   helperText={
                     errors.email
-                      ? errors.email.type === 'pattern'
-                        ? 'Email is not valid'
-                        : 'Email is required'
-                      : ''
+                      ? errors.email.type === "pattern"
+                        ? "Email is not valid"
+                        : "Email is required"
+                      : ""
                   }
                   {...field}
                 ></TextField>
@@ -101,14 +102,14 @@ export default function Login() {
                   fullWidth
                   id="password"
                   label="Password"
-                  inputProps={{ type: 'password' }}
+                  inputProps={{ type: "password" }}
                   error={Boolean(errors.password)}
                   helperText={
                     errors.password
-                      ? errors.password.type === 'minLength'
-                        ? 'Password length is more than 5'
-                        : 'Password is required'
-                      : ''
+                      ? errors.password.type === "minLength"
+                        ? "Password length is more than 5"
+                        : "Password is required"
+                      : ""
                   }
                   {...field}
                 ></TextField>
@@ -116,13 +117,19 @@ export default function Login() {
             ></Controller>
           </ListItem>
           <ListItem>
-            <Button variant="contained" type="submit" fullWidth color="primary">
+            <Button
+              className={classes.addToCardButton}
+              variant="contained"
+              type="submit"
+              fullWidth
+              color="primary"
+            >
               Login
             </Button>
           </ListItem>
           <ListItem>
             Don&apos;t have an account? &nbsp;
-            <NextLink href={`/register?redirect=${redirect || '/'}`} passHref>
+            <NextLink href={`/register?redirect=${redirect || "/"}`} passHref>
               <Link>Register</Link>
             </NextLink>
           </ListItem>
