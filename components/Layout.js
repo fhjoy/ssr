@@ -279,15 +279,11 @@ export default function Layout({ title, description, children }) {
           </Toolbar>
         </AppBar>
         <Container className={classes.main}>{children}</Container>
-        <footer className="footer">
-          <div className="bottom-footer">
-            <div className="copyright">
-              <p className="text">
-                Copyright&copy; 2022 All rights reserved | Made by
-                <span> Faisal Hossain </span>
-              </p>
-            </div>
-          </div>
+        <footer className={classes.footer}>
+          <p className={classes.footerText}>
+            Copyright&copy; 2022 All rights reserved | Made by
+            <span className={classes.footerLink}> Faisal Hossain </span>
+          </p>
         </footer>
       </ThemeProvider>
     </div>

@@ -131,10 +131,10 @@ const useStyles = makeStyles((theme) => ({
   main: {
     minHeight: "80vh",
   },
-  footer: {
-    marginTop: 10,
-    textAlign: "center",
-  },
+  // footer: {
+  //   marginTop: 10,
+  //   textAlign: "center",
+  // },
   section: {
     marginTop: 10,
     marginBottom: 10,
@@ -227,6 +227,22 @@ const useStyles = makeStyles((theme) => ({
       transition: "all 0.3s ease-in-out",
     },
   },
+  footer: {
+    padding: "2rem 0",
+    backgroundColor: "#111",
+    textAlign: "center",
+    // maxWidth: "71% ",
+    margin: "0 auto",
+  },
+  footerText: {
+    color: "#c1e2df",
+    textAlign: "center",
+  },
+  footerLink: {
+    color: "#006d77",
+    cursor: "pointer",
+  },
+
   fullContainer: { height: "100vh" },
   // mapInputBox: {
   //   position: "absolute",
