@@ -23,3 +23,12 @@ a:active {
 * {
   box-sizing: border-box;
 }
+
+.MuiPaper-root
+  .MuiAppBar-root
+  .MuiAppBar-positionStatic
+  .MuiAppBar-colorPrimary
+  .makeStyles-navbar-191
+  .MuiPaper-elevation4 {
+  box-shadow: none;
+}

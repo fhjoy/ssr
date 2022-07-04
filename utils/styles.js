@@ -2,8 +2,9 @@ import { makeStyles } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
   navbar: {
-    backgroundColor: "#e0e0e0",
-    maxWidth: "71% ",
+    backgroundColor: "#f0f0f0",
+    boxShadow: "none",
+    maxWidth: "100%",
     margin: "0 auto",
 
     "& a": {
@@ -21,7 +22,7 @@ const useStyles = makeStyles((theme) => ({
     textTransform: "none",
     fontSize: "1rem",
     fontWeight: "normal",
-    margin: "0 -.5rem 0 .2rem",
+    //margin: "0 -.5rem 0 .2rem",
     transition: "all 0.3s ease-in-out",
     "&:hover": {
       backgroundColor: "transparent",
@@ -42,6 +43,7 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: "#83c5be",
     padding: "0.1rem",
     borderRadius: "3px",
+    marginLeft: "21rem",
     "&:hover": {
       backgroundColor: "#006d77",
       color: "white",
@@ -59,7 +61,8 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     alignItems: "center",
     justifyContent: "flex-end",
-    marginRight: "-40rem",
+    marginRight: "-39rem",
+    // marginLeft: "-.5rem",
   },
 
   navbarButtonIcon: {
@@ -158,6 +161,7 @@ const useStyles = makeStyles((theme) => ({
   // search
   searchSection: {
     display: "none",
+    marginRight: "21rem",
     [theme.breakpoints.up("md")]: {
       display: "flex",
     },
@@ -192,7 +196,7 @@ const useStyles = makeStyles((theme) => ({
     paddingLeft: "0",
   },
   ratingIcon: {
-    color: "#006d77",
+    color: "#006d77 !important",
     "&:hover": {
       backgroundColor: "black",
       transition: "all 0.3s ease-in-out",
@@ -215,7 +219,7 @@ const useStyles = makeStyles((theme) => ({
     padding: "2rem 0",
     backgroundColor: "#111",
     textAlign: "center",
-    margin: "0 auto",
+    margin: "2rem auto",
   },
   footerText: {
     color: "#c1e2df",

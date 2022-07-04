@@ -9,7 +9,6 @@ import { useContext } from "react";
 import { Store } from "../utils/Store";
 import ProductItem from "../components/ProductItem";
 
-
 export default function Home(props) {
   const router = useRouter();
   const { state, dispatch } = useContext(Store);
@@ -27,7 +26,7 @@ export default function Home(props) {
   };
   return (
     <Layout>
-      <Typography variant="h2" align="center">
+      <Typography variant="h1" align="center">
         Currently Trending
       </Typography>
       <Grid container spacing={2}>
