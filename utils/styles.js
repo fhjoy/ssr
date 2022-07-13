@@ -22,7 +22,7 @@ const useStyles = makeStyles((theme) => ({
     textTransform: "none",
     fontSize: "1rem",
     fontWeight: "normal",
-    //margin: "0 -.5rem 0 .2rem",
+    margin: "0 -.5rem 0 .2rem",
     transition: "all 0.3s ease-in-out",
     "&:hover": {
       backgroundColor: "transparent",
@@ -61,7 +61,9 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     alignItems: "center",
     justifyContent: "flex-end",
-    marginRight: "-39rem",
+    flexGrow: 1,
+    marginRight: ".2rem",
+    // marginRight: "-19.2rem",
     // marginLeft: "-.5rem",
   },
 

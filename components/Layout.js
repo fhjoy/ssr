@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import Head from "next/head";
 import NextLink from "next/link";
+import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import {
   AppBar,
   Toolbar,
@@ -239,7 +240,7 @@ export default function Layout({ title, description, children }) {
                   </Link>
                 </NextLink>
               )}
-
+              <ArrowDropDownIcon />
               {userInfo?.isAdmin ? (
                 <NextLink href="/admin/dashboard" passHref>
                   <Link>
@@ -248,6 +249,7 @@ export default function Layout({ title, description, children }) {
                 </NextLink>
               ) : null}
             </div>
+            <ArrowDropDownIcon />
             <div className={classes.searchSection}>
               <form onSubmit={submitHandler} className={classes.searchForm}>
                 <InputBase
