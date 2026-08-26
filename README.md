@@ -145,7 +145,3 @@ npm start
 ## Project status
 
 This repository is an academic prototype created in 2022 for a controlled architecture comparison. It is preserved as evidence of the implementation and research process, not as a production storefront. Dependencies should be reviewed and upgraded before production use.
-
-## Author
-
-Developed by [Faisal Hossain](https://fhjoy.github.io/portfolio/) as part of the master's thesis in Communication and Media Engineering at Hochschule Offenburg.
